@@ -1,0 +1,313 @@
+<section class="group-section">
+    <div class="heading-block">
+        <h3>Create a New Message</h3>
+    </div>
+    <div class="stepper-demo">
+        <mat-stepper labelPosition="bottom" #stepper [disableRipple]="true" animationDuration="0ms">
+            <mat-step [stepControl]="firstFormGroup">
+                <form>
+                    <ng-template matStepLabel>Draft Message</ng-template>
+                    <div class="emergency-alert-block">
+                        <section class="example-section">
+                            <span class="sm-text">Distribute Via :</span>
+                            <mat-checkbox>Text Message</mat-checkbox>
+                            <mat-checkbox>Email</mat-checkbox>
+                            <mat-checkbox>Facebook</mat-checkbox>
+                        </section>
+                        <div class="input-field">
+                            <label for="email">Name of Message :</label>
+                            <mat-form-field appearance="outline" class="custom-form-field bg-fied ">
+                                <input matInput placeholder="" id="email">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="emergency-alert-block">
+                        <div class="alert-message-block">
+                            <div class="message-content">
+                                <h5 class="bold-text">Text Message Content</h5>
+                                <mat-card class="example-card">
+                                    <mat-card-content>
+                                        <p class="sm-text"><span class="bold-text"> NDS </span> : Hi School, just wanted
+                                            to say you guys are great. </p>
+
+                                    </mat-card-content>
+                                    <mat-card-actions>
+                                        <span>1 Part <i mat-raised-button matTooltip="Info about the action"
+                                                aria-label="Button that displays a tooltip when focused or hovered over">
+                                                i</i></span>
+                                        <span>135 remaining | 25/160</span>
+                                    </mat-card-actions>
+                                </mat-card>
+                                <div class="input-field">
+                                    <label for="email">Send Test Message :</label>
+                                    <mat-form-field appearance="outline" class="custom-form-field ">
+                                        <input matInput placeholder="Enter mobile number" id="email">
+                                    </mat-form-field>
+                                    <button class="btn blue-btn" mat-button><img
+                                            src="./../../../../assets/imges/send-big.svg"></button>
+                                    <!-- <button mat-button class="btn blue-btn">
+                                        <img src="./../../../../assets/imges/send.svg" /> </button> -->
+                                </div>
+                            </div>
+                            <div class="preview-messge">
+                                <h5 class="bold-text">Live Preview</h5>
+                                <p class="sm-text message">
+                                    <span class="bold-text"> NDS </span> : Hi School, just wanted to say you guys are
+                                    great.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="messge-btn ">
+                        <button class="btn primary-btn" mat-button matStepperNext>
+                            Next
+                        </button>
+                    </div>
+                </form>
+            </mat-step>
+            <mat-step [stepControl]="secondFormGroup">
+                <form>
+                    <ng-template matStepLabel>Choose Recipients</ng-template>
+                    <div class="heading-block">
+                        <h4>Recipients List</h4>
+                        <button mat-button class="btn yellow-btn bg-btn">
+                            <i><img src="./../../../../assets/imges/user.svg" /> </i> Add additional People</button>
+                    </div>
+                    <div class="mat-elevation-z8 table-demo">
+                    <table mat-table [dataSource]="dataSource3  " matSort (matSortChange)="announceSortChange($event)"
+                        >
+
+                        <!-- Position Column -->
+                        <ng-container matColumnDef="group">
+                            <th mat-header-cell *matHeaderCellDef sortActionDescription="Sort by number">
+                                Group
+                            </th>
+                            <td mat-cell *matCellDef="let element"> {{element.group}} </td>
+                        </ng-container>
+
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="create">
+                            <th mat-header-cell *matHeaderCellDef sortActionDescription="Sort by name">
+                                Created
+                            </th>
+                            <td mat-cell *matCellDef="let element"> {{element.create}} </td>
+                        </ng-container>
+
+                        <!-- Weight Column -->
+                        <ng-container matColumnDef="update">
+                            <th mat-header-cell *matHeaderCellDef sortActionDescription="Sort by weight">
+                                Last Updated
+                            </th>
+                            <td mat-cell *matCellDef="let element"> {{element.update}} </td>
+                        </ng-container>
+
+                        <!-- Symbol Column -->
+                        <ng-container matColumnDef="member">
+                            <th mat-header-cell *matHeaderCellDef sortActionDescription="Sort by symbol">
+                                Number of Member
+                            </th>
+                            <td mat-cell *matCellDef="let element"> {{element.member}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="action">
+                            <th mat-header-cell *matHeaderCellDef sortActionDescription="Sort by symbol">
+                                Action
+                            </th>
+                            <td mat-cell *matCellDef="let element"><mat-checkbox>Send</mat-checkbox> </td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns3"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns3;"></tr>
+                    </table>
+                    </div>
+                    <div class="group-select">
+                        <p class="blue-text">2 Groups Selected</p>
+                        <label id="example-radio-group-label">For students in groups, include:</label>
+                        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group">
+                            <mat-radio-button value="1">Caregivers only</mat-radio-button>
+                            <mat-radio-button value="2">Students only</mat-radio-button>
+                            <mat-radio-button value="3">Caregivers as well as students</mat-radio-button>
+                        </mat-radio-group>
+
+                        <div class="paginator-button-wrapper">
+                            <button class="btn border-btn" mat-button matStepperPrevious>
+                                Previous
+                            </button>
+                            <button class="btn primary-btn" mat-button matStepperNext>
+                                Next
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </mat-step>
+            <mat-step>
+                <ng-template matStepLabel>Preview and Send</ng-template>
+                <h4>Preview</h4>
+                <div class="preview-message-block">
+                    <p class="sm-text bold-text">You are sending “G’day Message” via <span class="blue-text"> Text
+                            message, Email, Facebook</span></p>
+                    <div class="message-send-steap">
+
+                        <div class="custom-message">
+                            <div class="preview-message">
+                                <p [ngClass]="{'show-less': showShortDesciption}">
+                                    <span class="bold-text"> NDS :</span> Hi School, just wanted to say you guys are
+                                    great.
+                                    Our schools is closing to early. please get your children. please collect children
+                                    at 2pm today from the front gate. Our School will reopen tomorrow. Please ensure
+                                    your child brings clean water to school for drinking. ust wanted to say you guys are
+                                    great. Our schools is closing to early. please get your children. please collect
+                                    children at 2pm today from the front gate. Our School will reopen tomorrow.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="custom-message">
+                            <div class="message">
+                                <div class="message-heading">
+                                    <h6 class="bold-text">Nodoworry School</h6>
+                                    <i><img src="./../../../../assets/imges/education-logo.svg"> </i>
+                                </div>
+                                <div class="message-content">
+                                    <p [ngClass]="{'show-less': showShortDesciption}">
+                                        Hi School, just wanted to say you guys are great.
+                                        Our schools is closing to early. please get your children. please collect
+                                        children at 2pm today from the front gate. Our School will reopen tomorrow.
+                                        Please ensure your child brings clean water to school for drinking. ust wanted
+                                        to say you guys are great. Our schools is closing to early. please get your
+                                        children. please collect children at 2pm today from the front gate. Our School
+                                        will reopen tomorrow.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="custom-message">
+                            <div class="send-message">
+                                <div class="school-logo">
+                                    <i><img src="./../../../../assets/imges/education-logo.svg"> </i>
+                                    <div class="school-name">
+                                        <p class="bold-text">Nodoworry School</p>
+                                        <span>2 min</span>
+                                    </div>
+                                </div>
+                                <div class="message-content">
+                                    <p [ngClass]="{'show-less': showShortDesciption}">
+                                        Hi School, just wanted to say you guys are great.
+                                        Our schools is closing to early. please get your children. please collect
+                                        children at 2pm today from the front gate. Our School will reopen tomorrow.
+                                        Please ensure your child brings clean water to school for drinking. ust wanted
+                                        to say you guys are great. Our schools is closing to early. please get your
+                                        children. please collect children at 2pm today from the front gate. Our School
+                                        will reopen tomorrow.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="expand-button">
+                        <button class="btn blue-btn round-btn" mdc-button type="button"
+                            (click)="alterDescriptionText()">{{ showShortDesciption ? 'Expand View ': 'Collapse View' }}
+                            <i [ngClass]="{'opener' : open    }"> <img src="./../../../../assets/imges/expand-btn.svg">
+                            </i></button>
+                    </div>
+
+                </div>
+                <section class="user-role-section">
+                    <div class="heading-block">
+                        <h3>Recipients List</h3>
+                        <div class="search-block">
+                            <mat-form-field appearance="outline" class="custom-form-field custom-icon">
+                                <input matInput placeholder="Search Recipients">
+                                <mat-icon matPrefix><img src="./../../../../assets/imges/search.svg"> </mat-icon>
+                            </mat-form-field>
+                            <button mat-button class="btn yellow-btn">
+                                <i><img src="./../../../../assets/imges/user.svg" /> </i> Add additional People</button>
+                        </div>
+                    </div>
+                    <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start" animationDuration="0ms">
+                        <mat-tab>
+                            <ng-template mat-tab-label>
+                                Caregivers
+                                <span class=" badge">52</span>
+                            </ng-template>
+                            <div class="mat-elevation-z8 table-demo">
+                                <table mat-table [dataSource]="dataSource2">
+                                    <ng-container matColumnDef="id">
+                                        <th mat-header-cell *matHeaderCellDef> Recipient</th>
+                                        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                                    </ng-container>
+
+                                    <ng-container matColumnDef="title">
+                                        <th mat-header-cell *matHeaderCellDef>Email </th>
+                                        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+                                    </ng-container>
+
+                                    <ng-container matColumnDef="status">
+                                        <th mat-header-cell *matHeaderCellDef> Phone Number </th>
+                                        <td mat-cell *matCellDef="let element">
+                                            +61488827086
+                                        </td>
+                                    </ng-container>
+                                    <ng-container matColumnDef="created">
+                                        <th mat-header-cell *matHeaderCellDef> Action </th>
+                                        <td mat-cell *matCellDef="let element">
+                                            <mat-checkbox>Facebook</mat-checkbox>
+                                        </td>
+                                    </ng-container>
+
+
+                                    <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+                                    <tr mat-row *matRowDef="let row; columns: displayedColumns2;"></tr>
+                                </table>
+                            </div>
+                            <mat-paginator [pageSizeOptions]="[8, 10, 20]" showFirstLastButtons
+                                    aria-label="Select page of periodic elements">
+                                </mat-paginator>
+                        </mat-tab>
+                        <mat-tab>
+                            <ng-template mat-tab-label>
+                                All Student
+                                <span class=" badge">250</span>
+                            </ng-template>
+                        </mat-tab>
+
+                    </mat-tab-group>
+                </section>
+                <div class="final-message-block">
+                    <div class="recipient-count">
+                        <div class="caregivers-recipient">
+                            <p class="blue-text">Caregivers</p>
+                            <span class="sm-text">Total Recipient : 52</span>
+                            <span class="sm-text">Exclude Recipient : 03</span>
+                        </div>
+                        <div class="student-recipient">
+                            <p class="blue-text">All Student</p>
+                            <span class="sm-text">Total Recipient : 250</span>
+                            <span class="sm-text">Exclude Recipient : 00 </span>
+                        </div>
+                    </div>
+                    <div class="button-wrappers">
+                        <div class="left-button">
+                            <button class="btn border-btn" mat-button matStepperPrevious>
+                                Previous
+                            </button>
+                        </div>
+                        <div class="right-button">
+                            <button class="btn yellow-btn" mat-button>
+                                Save as Template
+                            </button>
+                            <button class="btn yellow-btn" mat-button>
+                                Schedule
+                            </button>
+                            <button class="btn yellow-btn" mat-button>
+                                Save as Draft
+                            </button>
+                            <button class="btn primary-btn" mat-button>
+                                Send
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </mat-step>
+        </mat-stepper>
+
+    </div>
+</section>

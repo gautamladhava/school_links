@@ -1,0 +1,21 @@
+ @import "./../../../../assets/css/main.scss";
+.user-role-section {
+    padding: 20px 0;
+td{
+    &.cdk-column-position{
+        white-space: nowrap;
+    }
+}
+    .search-block {
+        @include bp(xlg-max){
+            flex-direction: column;
+            display: flex;
+        }
+        .custom-icon {
+            margin-right: 20px;
+            @include bp(xlg-max){
+                margin-right: 0 !important;
+            }
+        }
+    }
+}

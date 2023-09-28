@@ -1,0 +1,31 @@
+<div class="container-fluid">
+    <div class="auth-block">
+        <div class="custom-auth">
+            <app-auth-custom> </app-auth-custom>
+        </div>
+        <div class="login-block">
+            <a href="/" title="School-Links" class="logo"><img src="./../../../../assets/imges/logos.svg"></a>
+            <h2>Sign In</h2>
+            <label for="email">Email</label>
+            <mat-form-field appearance="outline" class="custom-form-field">
+                <input matInput placeholder="Enter Your Email " id="email">
+            </mat-form-field>
+            <label for="password"> Password</label>
+            <mat-form-field appearance="outline" class="custom-form-field">
+
+                <input matInput placeholder="Enter your password" id="password">
+              
+            </mat-form-field>
+            <mat-checkbox class="example-margin" >Remember me</mat-checkbox>
+            <a routerLink="/pages" mat-flat-button color="primary" class="btn primary-btn" title="Sign In">Sign In</a>
+            <p>Don't have your password? </p>
+            <div class="auth-link">
+                <a routerLink="/forgot-password"   title="Forgot Password"> Forgot Password</a>
+            </div>
+          
+            <div class="bottom-text">
+                <p>All rights reserved by <a href="/" title="School-Links">School-Links </a> |  &copy;2023</p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,184 @@
+<section class="home-section">
+    <div class="heading-block">
+        <h3>Home</h3>
+        <p>Last Refreshed 05/12/20222</p>
+    </div>
+    <div class="school-info-list card-demo">
+        <div  class="dash-count">
+            <div class="school-info red-bg">
+                <i><img src="./../../../../assets/imges/alert.svg" /> </i>
+                <p class="bg-text">
+                    Send <span class="bold-text"> Emergency Alert </span> to all school
+                </p>
+
+                <button mat-flat-button color="primary" class="btn secondary-btn" title="Reset Password">
+                    <i><img src="./../../../../assets/imges/alerts.svg" /> </i> Emergency
+                    Alert send now
+                </button>
+            </div>
+        </div>
+        <div  class="dash-count">
+            <div class="school-info">
+                <div class="img-content-block">
+                    <div class="img-block">
+                        <img src="./../../../../assets/imges/gift.png" />
+                    </div>
+                    <div class="content-block">
+                        <div class="content">
+                            <h5 class="bold-text">School-links Holiday closure</h5>
+                            <p>
+                                It’s that time of year again when everyone is gearing up to end
+                                2022 with Christmas and New Year festivities Check fu..
+                            </p>
+                        </div>
+                        <div class="more-content">
+                            <span><i><img src="./../../../../assets/imges/date.svg" /> </i>
+                                02/12/2022</span>
+                            <a routerLink="/" mat-button title="Read more" class="blue-text">Read more</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+</section>
+<section class="delivery-section">
+    <div class="delivery-info-list card-demo">
+        <div class="dash-count">
+            <div class="delivery-info">
+                <i><img src="./../../../../assets/imges/confirm.svg" /> </i>
+                <div class="delivery-detail">
+                    <p>Delivery confirmed</p>
+                    <span class="count confirm-text bold-text">77</span>
+                </div>
+            </div>
+        </div>
+        <div class="dash-count">
+            <div class="delivery-info">
+                <i><img src="./../../../../assets/imges/faild.svg" /> </i>
+                <div class="delivery-detail">
+                    <p>Delivery failed messages</p>
+                    <span class="count faild-text bold-text">20</span>
+                </div>
+            </div>
+        </div>
+        <div class="dash-count">
+            <div class="delivery-info">
+                <i><img src="./../../../../assets/imges/bonced.svg" /> </i>
+                <div class="delivery-detail">
+                    <p>Bounced messages</p>
+                    <span class="count bounced-text bold-text">25</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="user-section">
+    <div class="heading-block">
+        <h3>Users</h3>
+        <a routerLink="/" title="View All" mat-button> View All </a>
+    </div>
+    <div class="table-demo">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            <ng-container matColumnDef="position">
+                <th mat-header-cell *matHeaderCellDef>Name</th>
+                <td mat-cell *matCellDef="let element">
+                    <span>
+                        <i><img *ngIf="element.img; else elseBlock"
+                                src="./../../../../assets/imges/{{ element.img }}" />
+                            <ng-template #elseBlock>
+                                <span class="avtar">KW</span>
+                            </ng-template>
+                        </i>
+                        {{ element.name }}
+                    </span>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef>Phone Number</th>
+                <td mat-cell *matCellDef="let element">+{{ element.no }}</td>
+            </ng-container>
+            <ng-container matColumnDef="weight">
+                <th mat-header-cell *matHeaderCellDef>Email</th>
+                <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+            </ng-container>
+            <ng-container matColumnDef="weight1">
+                <th mat-header-cell *matHeaderCellDef>Roles</th>
+                <td mat-cell *matCellDef="let element">{{ element.role }}</td>
+            </ng-container>
+            <ng-container matColumnDef="weight2">
+                <th mat-header-cell *matHeaderCellDef>Status</th>
+                <td mat-cell *matCellDef="let element">{{ element.status }}</td>
+            </ng-container>
+            <ng-container matColumnDef="weight3">
+                <th mat-header-cell *matHeaderCellDef>Last Login</th>
+                <td mat-cell *matCellDef="let element">{{ element.time }} hr ago</td>
+            </ng-container>
+            <ng-container matColumnDef="symbol">
+                <th mat-header-cell *matHeaderCellDef>Actions</th>
+                <td mat-cell *matCellDef="let element">
+                    <div class="button-wrapper">
+                        <button mat-button class="blue-btn btn" (click)="update()">
+                            <img src="./../../../../assets/imges/edits.svg" />
+                        </button>
+                        <button mat-button class="red-btn btn" (click)="openDialogs()">
+                            <img src="./../../../../assets/imges/dels.svg" />
+                        </button>
+                    </div>
+                </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            <!-- <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="inactive" ></tr> -->
+        </table>
+    </div>
+
+    <div class="message-list card-demo">
+        <div class="dash-count">    
+            <div class="message-block">
+                <div class="heading-block">
+                    <h4>Message Sent</h4>
+                    <mat-form-field class="custom-form-field custom-select" appearance="outline">
+                        <mat-select [formControl]="colorControl">
+                            <mat-option value="one" aria-selected="true">This Week
+                            </mat-option>
+                            <mat-option value="two">Next Week</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <canvas id="canvas">{{ chart }}</canvas>
+            </div>
+        </div>
+        <div class="dash-count">
+            <div class="message-block">
+                <div class="heading-block">
+                    <h4>Your Last Message</h4>
+                </div>
+
+                <p class="blue-text">NDS : todays general messages</p>
+                <p class="sm-text">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting
+                    industry. Lorem Ipsum has been the industry's standard dummy text ever
+                    since the 1500s, when an unknown printer took a galley of type and
+                    scrambled it to make a type specimen book. It has survived not only
+                    five centuries, but also the leap into electronic typesetting,
+                    remaining essentially unchanged.
+                </p>
+                <span class="small-text"> Sent Via : </span>
+                <div class="button-wrappers">
+                    <a routerLink="/" title="Message" mat-button class="btn green-btn round-btn">Message</a>
+                    <a routerLink="/" title="Email" mat-button class="btn perpal-btn round-btn">Email</a>
+                    <a routerLink="/" title="Facebook" mat-button class="btn blue-btn round-btn">Facebook</a>
+                </div>
+
+                <div class="replay-block">
+                    <span><i><img src="./../../../../assets/imges/sent.svg" /> </i> Sent
+                        02/12/2020 10:22 am</span>
+                    <a routerLink="/" title="" mat-button class="btn yellow-btn round-btn">2 Reply</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

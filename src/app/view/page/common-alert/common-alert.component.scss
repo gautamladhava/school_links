@@ -1,0 +1,193 @@
+@import "./../../../../assets/css/main.scss";
+
+.alert-section {
+    padding: 30px 0;
+@include bp(xs-max){
+    padding: 20px 0;
+}
+    .heading-block {
+        @include bp(xs-max) {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+
+        h3 {
+            @include bp(xs-max) {
+                margin-bottom: 10px !important;
+            }
+
+        }
+        .btn{
+            font-size: 18px !important;
+            @include bp(smlg-max){
+                font-size:  16px !important;
+            }
+            @include bp(xs-max){
+                font-size:  14px !important;
+            }
+        }
+    }
+
+    .back-btn {
+        padding: 8px 0 !important;
+        justify-content: start !important;
+        text-decoration: none;
+        display: inline-flex;
+       color: $black !important;
+        i {
+            margin-right: 10px;
+        }
+    }
+
+    .emergency-alert-block {
+        background-color: $white !important;
+        border-radius: 10px;
+        padding: 20px;
+        margin-top: 30px ;
+
+        @include bp(xs-max) {
+            padding: 10px;
+            margin-top: 20px ;
+        }
+
+        h4 {
+            margin-bottom: 15px !important;
+            @include bp(xs-max){
+                margin-bottom: 10px !important;
+            }
+        }
+
+        .example-section {
+            @include bp(smlg-max) {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            mat-checkbox {
+                margin: 0 10px;
+
+                @include bp(smlg-max) {
+                    margin: 0;
+                }
+            }
+        }
+        p{
+            color: $steppear-color !important;
+        }
+    }
+
+    .alert-message-block {
+        display: flex;
+        margin: 0 -10px;
+        flex-wrap: wrap;
+
+        @include bp(xs-max) {
+            margin: 0;
+        }
+
+        .message-content {
+            flex: 0 0 50%;
+            max-width: 50%;
+            padding: 0 10px;
+
+            @include bp(xs-max) {
+                flex: 0 0 100%;
+                max-width: 100%;
+                padding: 0;
+                margin-bottom: 20px;
+            }
+
+            .example-card {
+                border-radius: 10px;
+                box-shadow: none !important;
+                border: 1px solid $card-border;
+                overflow: hidden;
+
+                mat-card-content {
+                    min-height: 130px;
+                }
+
+                .mdc-card__actions {
+                    padding: 8px 16px !important;
+                    min-height: auto !important;
+                    background-color: $blue-btn;
+                    display: flex;
+                    justify-content: space-between;
+
+                    @include bp(smlg-max) {
+                        padding: 5px 10px !important;
+                    }
+
+                    span {
+                        display: flex;
+                        font-size: 12px !important;
+                        align-items: center;
+
+                        i {
+                            margin-left: 10px;
+                            height: 16px;
+                            width: 16px;
+                            font-size: 12px;
+                            display: flex;
+                            justify-content: center;
+                            color: $white !important;
+                            background-color: $blue;
+                            border-radius: 50%;
+                            cursor: pointer;
+                            font-style: normal !important;
+                        }
+                    }
+                }
+
+                .mat-mdc-card-content {
+                    @include bp(smlg-max) {
+                        padding: 10px 10px 0 10px;
+                    }
+                }
+            }
+        }
+
+        .preview-messge {
+            flex: 0 0 50%;
+            max-width: 50%;
+            padding: 0 10px;
+
+            @include bp(xs-max) {
+                flex: 0 0 100%;
+                max-width: 100%;
+                padding: 0;
+            }
+
+            .message {
+                background-color: $gray-bg;
+                padding: 15px;
+                border-radius: 10px;
+                max-width: 350px;
+
+                @include bp(smlg-max) {
+                    padding: 10px;
+                }
+            }
+        }
+    }
+}
+
+.messge-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+
+    button {
+        border: none !important;
+        border-radius: 10px;
+        font-size: 18px !important;
+        @include bp(smlg-max){
+            font-size:  16px !important;
+        }
+        @include bp(xs-max){
+            font-size:  14px !important;
+        }
+    }
+}

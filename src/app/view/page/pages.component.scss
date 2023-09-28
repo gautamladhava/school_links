@@ -1,0 +1,27 @@
+@import "./.././../../assets/css/main.scss";
+
+.wrapper {
+    .main-wrapper {
+        min-height: 100vh;
+        background-color: $body-bg;
+
+        .page {
+            flex: 0 0 calc(100% - 290px);
+            max-width: calc(100% - 290px);
+            transition: all 0.6s;
+            margin: 0 0 0 auto;
+            padding: 85px 20px 20px 20px;
+
+            @include bp(xlg-max) {
+                padding: 85px 15px 15px 15px;
+            }
+            @include bp(xs-max){
+                padding-top: 80px;
+            }
+            @include bp(tablet-max) {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+        }
+    }
+}

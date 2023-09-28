@@ -1,0 +1,135 @@
+@import "./../../../../assets/css/main.scss";
+
+.school-section {
+    padding: 25px 0;
+    @include bp(xs-max){
+        padding: 15px 0;
+    }
+    .heading-block {
+        @include bp(xs-max) {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        h3 {
+            @include bp(xs-max) {
+                margin-bottom: 10px !important;
+            }
+        }
+    }
+    
+    .search-block {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 0;
+        @include bp(xs-max) {
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        .btn {
+            i {
+                margin-right: 10px;
+                img {
+                    height: 25px;
+                    width: 25px;
+                }
+            }  
+        }
+    }
+
+    .school-list {
+        .school-info-card {
+            padding: 20px;
+            background-color: $white;
+            margin-bottom: 20px;
+            border-radius: 10px;
+
+            @include bp(xs-max) {
+                padding: 10px;
+            }
+
+            h4 {
+                margin-bottom: 15px !important;
+                @include bp(xs-max){
+                    margin-bottom: 8px !important;
+                }
+            }
+
+            .img-content-block {
+                display: flex;
+                margin: 0 -10px;
+
+                @include bp(smlg-max) {
+                    flex-direction: column;
+                }
+
+                .img-block {
+                    padding: 0 10px;
+
+                    @include bp(smlg-max) {
+                        margin-bottom: 20px;
+                        align-items: center;
+                        display: flex;
+                }
+                    img {
+                        display: flex;
+                        object-fit: cover;
+                        border-radius: 10px;
+                        height: 200px;
+                        width: 250px;
+                        @include bp(xs-max) {
+                            height: 165px;
+                            width: 200x;
+                        }
+                    }
+                }
+                .content-block {
+                    padding: 0 10px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    .vesit-website {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        @include bp(xs-max) {
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: flex-start;
+                        }
+                        a {
+                            color: $primary-text;
+                            text-decoration: none;
+                            font-weight: 500 !important;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 16px !important;
+                            @include bp(xs-max){
+                                font-size: 14px !important;
+                            }
+                            i {
+                                display: flex;
+                                margin-left: 10px;
+
+                            }
+                        }
+                        .red-btn {
+                            padding: 12px !important;
+
+                            @include bp(xs-max) {
+                                margin-bottom: 10px;
+                            }
+                            i {
+                                margin-right: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+

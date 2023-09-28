@@ -1,0 +1,91 @@
+<section class="account-section">
+    <h3>My Account</h3>
+
+    <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start" animationDuration="0ms"> 
+        <mat-tab label="Account Details">
+            <div class="account-detail">
+                <div class="profile-photo">
+                    <i class="profile-icon">
+                        <img src="./../../../../assets/imges/profile-icon.svg">
+                    </i>
+                    <i class="profile-edit-icon">
+                        <img src="./../../../../assets/imges/edit-icon.svg">
+                        <input type="file" class="img-uplod">
+                    </i>
+                </div>
+                <div class="profile-detail">
+                    <div class="input-field">
+                        <label for="fname">First Name</label>
+                        <mat-form-field appearance="outline" class="custom-form-field">
+                            <input matInput value="Wade" id="fname">
+                        </mat-form-field>
+                    </div>
+                  
+                    <div class="input-field">
+                        <label for="lname">Last Name</label>
+                        <mat-form-field appearance="outline" class="custom-form-field">
+                            <input matInput value="Warren" id="lname">
+                        </mat-form-field>
+                    </div>
+                    <div class="input-field">
+                        <label for="email">Email ID</label>
+                        <mat-form-field appearance="outline" class="custom-form-field">
+                            <input matInput value="wadewarren@gmail.com" id="email">
+                        </mat-form-field>
+                    </div>
+                    <div class="input-field">
+                        <label for="number">Phone Number</label>
+                        <mat-form-field appearance="outline" class="custom-form-field">
+                            <input matInput value="+61092156867" id="number">
+                        </mat-form-field>
+                    </div>
+                    <div class="input-field">
+                        <label for="status">Primary School of  Operation</label>
+                        <mat-form-field class="custom-form-field custom-select" appearance="outline">
+                            <mat-select [formControl]="colorControl" id="status">
+                                <mat-option value="one" aria-selected="true">Nodoworry School
+                                </mat-option>
+                                <mat-option value="two">school</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="btn-wrappers">
+                        <button mat-flat-button color="primary" class="btn primary-btn " title="Sign In" mat-button mat-dialog-close>Save Details</button>
+                
+                    </div>
+                </div>
+                
+            </div>
+        </mat-tab>
+        <mat-tab label="Change Password">
+            <div class="account-detail edit-details">
+                <div class="input-field old-password">
+                    <label for="fname">Old Password</label>
+                    <mat-form-field appearance="outline" class="custom-form-field">
+                        <input matInput placeholder="Enter old password" id="fname">
+                    </mat-form-field>
+                </div>
+                <div class="profile-detail">
+                    <div class="input-field">
+                        <label for="lname">New Password</label>
+                        <mat-form-field appearance="outline" class="custom-form-field">
+                            <input matInput placeholder="Enter new password" id="lname">
+                        </mat-form-field>
+                    </div>
+                    <div class="input-field">
+                        <label for="email">Confirm Password</label>
+                        <mat-form-field appearance="outline" class="custom-form-field">
+                            <input matInput placeholder="Enter confirm password" id="email">
+                        </mat-form-field>
+                    </div>
+                   
+                    <div class="btn-wrappers">
+                        <button mat-flat-button color="primary" class="btn primary-btn " title="Sign In" mat-button mat-dialog-close>Change Password</button>
+                
+                    </div>
+                </div>
+                
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+</section>

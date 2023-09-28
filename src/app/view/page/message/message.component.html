@@ -1,0 +1,416 @@
+<section class="message-section">
+    <div class="heading-block">
+        <h3>Message</h3>
+        <button mat-button class="btn yellow-btn ">
+            <i><img src="./../../../../assets/imges/message.svg" /> </i> Create New Message</button>
+    </div>
+    <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start" animationDuration="0ms">
+        <mat-tab label="Sent">
+            <div class="input-wrapper">
+                <mat-form-field appearance="outline" class="custom-form-field custom-icon">
+
+                    <input matInput placeholder="Search" #input (keyup)="applyFilter($event)">
+                    <mat-icon matPrefix><img src="./../../../../assets/imges/search.svg"> </mat-icon>
+                </mat-form-field>
+                <div class="input-select-wrapper">
+                    <mat-form-field class="custom-form-field custom-select" appearance="outline">
+                        <mat-select [formControl]="colorControl">
+                            <mat-option value="one" aria-selected="true">Bounced
+                            </mat-option>
+                            <mat-option value="two">Unreceived</mat-option> </mat-select>
+                    </mat-form-field>
+                    <mat-form-field class="custom-form-field custom-select" appearance="outline">
+                        <mat-select [formControl]="colorControl">
+                            <mat-option value="one" aria-selected="true">Today Only
+                            </mat-option>
+                            <mat-option value="two">Email Only</mat-option> </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="mat-elevation-z8 table-demo">
+                <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)">
+
+                    <ng-container matColumnDef="title">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header > Title </th>
+                        <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="content">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header >Content </th>
+                        <td mat-cell *matCellDef="let element"> {{element.content}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="delivery">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header > Delivery </th>
+                        <td mat-cell *matCellDef="let element">
+                            <div class=" img-wrapper">
+                               <a routerLink="/" title="message"><i><img src="./../../../../assets/imges/message-blue.svg"> </i></a>
+                               <a routerLink="/" title="email"><i><img src="./../../../../assets/imges/email-blue.svg"> </i></a>
+                               <a routerLink="/" title="facebook"><i><img src="./../../../../assets/imges/facebook-blue.svg"> </i></a>
+                            </div>
+
+                        </td>
+                    </ng-container>
+
+
+                    <ng-container matColumnDef="create">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header > Created </th>
+                        <td mat-cell *matCellDef="let element">
+                            <p>16/12/2022 </p>
+                            <p>11:32:55 </p>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="sent">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header > Sent </th>
+                        <td mat-cell *matCellDef="let element">
+                            <p>17/12/2022 </p>
+                            <p>10:15:32 </p>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="no">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header > No. Recipients </th>
+                        <td mat-cell *matCellDef="let element"> {{element.no}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="action">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header >action </th>
+                        <td mat-cell *matCellDef="let element">
+                            <div class="button-wrapper">
+                                <button mat-button class="btn yellow-btn ">
+                                    <img src="./../../../../assets/imges/view.svg" /> </button>    
+                            </div>
+                             </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+            </div>
+            <mat-paginator [pageSizeOptions]="[8, 10, 20]" showFirstLastButtons
+                    aria-label="Select page of periodic elements">
+                </mat-paginator>
+        </mat-tab>
+        <mat-tab label="Received">
+            <div class="input-wrapper">
+                <mat-form-field appearance="outline" class="custom-form-field custom-icon">
+                    <input matInput placeholder="Search" #input1 (keyup)="applyFilter1($event)">
+                    <mat-icon matPrefix><img src="./../../../../assets/imges/search.svg"> </mat-icon>
+                </mat-form-field>
+                <div class="input-select-wrapper">
+                    <mat-form-field class="custom-form-field custom-select" appearance="outline">
+                        <mat-select [formControl]="colorControl">
+                            <mat-option value="one" aria-selected="true">Today Only
+                            </mat-option>
+                            <mat-option value="two">Email Only</mat-option> </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="mat-elevation-z8 table-demo">
+                <table mat-table [dataSource]="dataSource1">
+
+                    <ng-container matColumnDef="title1">
+                        <th mat-header-cell *matHeaderCellDef> Form </th>
+                        <td mat-cell *matCellDef="let element"> +614325468989 </td>
+                    </ng-container>
+                    <ng-container matColumnDef="content1">
+                        <th mat-header-cell *matHeaderCellDef>Content </th>
+                        <td mat-cell *matCellDef="let element"> {{element.content}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="create1">
+                        <th mat-header-cell *matHeaderCellDef> Received </th>
+                        <td mat-cell *matCellDef="let element">16/12/2022
+                            11:32:55 </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumn"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumn;"></tr>
+                </table>
+            </div>
+            <mat-paginator [pageSizeOptions]="[8, 10, 20]" showFirstLastButtons
+            aria-label="Select page of periodic elements">
+        </mat-paginator>
+        </mat-tab>
+        <mat-tab label="Draft">
+            <div class="input-wrapper">
+                <mat-form-field appearance="outline" class="custom-form-field custom-icon">
+
+                    <input matInput placeholder="Search" #input2 (keyup)="applyFilter2($event)">
+                    <mat-icon matPrefix><img src="./../../../../assets/imges/search.svg"> </mat-icon>
+                </mat-form-field>
+                <div class="input-select-wrapper">
+                    <mat-form-field class="custom-form-field custom-select" appearance="outline">
+                        <mat-select [formControl]="colorControl">
+                            <mat-option value="one" aria-selected="true">Today Only
+                            </mat-option>
+                            <mat-option value="two">Email Only</mat-option> </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="mat-elevation-z8 table-demo">
+                <table mat-table [dataSource]="dataSource2">
+
+                    <ng-container matColumnDef="title2">
+                        <th mat-header-cell *matHeaderCellDef> Title </th>
+                        <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="content2">
+                        <th mat-header-cell *matHeaderCellDef>Content </th>
+                        <td mat-cell *matCellDef="let element"> {{element.content}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="delivery2">
+                        <th mat-header-cell *matHeaderCellDef> Delivery </th>
+                        <td mat-cell *matCellDef="let element">
+                            <div class=" img-wrapper">
+                                <a routerLink="/" title="message"><i> <img src="./../../../../assets/imges/message-blue.svg"></i></a>
+                                <a routerLink="/" title="email"><i><img src="./../../../../assets/imges/email-blue.svg"></i></a>
+                                <a routerLink="/" title="facebook"><i><img src="./../../../../assets/imges/facebook-blue.svg"></i></a>
+                            </div>
+
+                        </td>
+                    </ng-container>
+
+
+                    <ng-container matColumnDef="create2">
+                        <th mat-header-cell *matHeaderCellDef> Created </th>
+                        <td mat-cell *matCellDef="let element">
+                            <p>16/12/2022 </p>
+                            <p>11:32:55 </p>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="sent2">
+                        <th mat-header-cell *matHeaderCellDef> Sent </th>
+                        <td mat-cell *matCellDef="let element">
+                            <p>17/12/2022 </p>
+                            <p>10:15:32 </p>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="no2">
+                        <th mat-header-cell *matHeaderCellDef> No. Recipients </th>
+                        <td mat-cell *matCellDef="let element"> 17 </td>
+                    </ng-container>
+                    <ng-container matColumnDef="action2">
+                        <th mat-header-cell *matHeaderCellDef>action </th>
+                        <td mat-cell *matCellDef="let element">
+                            <div class="button-wrapper">
+                                <button mat-button class="btn red-btn " (click)="openDialogs()">
+                                    <img src="./../../../../assets/imges/dels.svg" /> </button>
+                                <button mat-button class="btn yellow-btn ">
+                                    <img src="./../../../../assets/imges/view.svg" /> </button>
+                                <button mat-button class="btn blue-btn "  (click)="openDialoges()">
+                                    <img src="./../../../../assets/imges/send.svg" /> </button>
+                            </div>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns2;"></tr>
+                </table>
+            </div>
+            <mat-paginator [pageSizeOptions]="[8, 10, 20]" showFirstLastButtons
+            aria-label="Select page of periodic elements">
+        </mat-paginator>
+        </mat-tab>
+        <mat-tab label="Template">
+            <div class="input-wrapper">
+                <mat-form-field appearance="outline" class="custom-form-field custom-icon">
+
+                    <input matInput placeholder="Search template" #input (keyup)="applyFilter($event)">
+                    <mat-icon matPrefix><img src="./../../../../assets/imges/search.svg"> </mat-icon>
+                </mat-form-field>
+                <div class="input-select-wrapper">
+                    <mat-form-field class="custom-form-field custom-select" appearance="outline">
+                        <mat-select [formControl]="colorControl">
+
+                            <mat-option value="one" aria-selected="true">Ascending
+                            </mat-option>
+                            <mat-option value="two">Descending</mat-option> </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="templet-lists">
+                <div class="templet-list">
+                    <mat-card class="templet-content">
+                        <mat-card-header>
+                            <mat-card-title>
+                                <h5 class="bold-text">Soccer Training Cancelled </h5>
+                            </mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content>                          
+                            <span><i><img src="./../../../../assets/imges/dates.svg"> </i> Created Jul 15, 2022 </span>
+                        </mat-card-content>
+                        <mat-card-actions>
+                            <div class="left-block">
+                                <p><span class="bold-text"> Delivery : </span><span class="blue-text"> Text, Email,
+                                        Facebook </span> </p>
+                            </div>
+                            <div class="button-wrapper">
+                                <button mat-button class="btn red-btn ">
+                                    <img src="./../../../../assets/imges/dels.svg" /> </button>
+                            </div>
+                        </mat-card-actions>
+                    </mat-card>
+
+                </div>
+                <div class="templet-list">
+                    <mat-card class="templet-content">
+                        <mat-card-header>
+                            <mat-card-title>
+                                <h5 class="bold-text">Yoga Classes </h5>
+                            </mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content>                          
+                            <span><i><img src="./../../../../assets/imges/dates.svg"> </i> Created Jul 15, 2022 </span>
+                        </mat-card-content>
+                        <mat-card-actions>
+                            <div class="left-block">
+                                <p><span class="bold-text"> Delivery : </span><span class="blue-text"> Text, Email,
+                                        Facebook </span> </p>
+                            </div>
+                            <div class="button-wrapper">
+                                <button mat-button class="btn red-btn ">
+                                    <img src="./../../../../assets/imges/dels.svg" /> </button>
+                            </div>
+                        </mat-card-actions>
+                    </mat-card>
+
+                </div>
+                <div class="templet-list">
+                    <mat-card class="templet-content">
+                        <mat-card-header>
+                            <mat-card-title>
+                                <h5 class="bold-text">Soccer Training Cancelled </h5>
+                            </mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content>                          
+                            <span><i><img src="./../../../../assets/imges/dates.svg"> </i> Created Jul 15, 2022 </span>
+                        </mat-card-content>
+                        <mat-card-actions>
+                            <div class="left-block">
+                                <p><span class="bold-text"> Delivery : </span><span class="blue-text"> Text, Email,
+                                        Facebook </span> </p>
+                            </div>
+                            <div class="button-wrapper">
+                                <button mat-button class="btn red-btn ">
+                                    <img src="./../../../../assets/imges/dels.svg" /> </button>
+                            </div>
+                        </mat-card-actions>
+                    </mat-card>
+
+                </div>
+                <div class="templet-list">
+                    <mat-card class="templet-content">
+                        <mat-card-header>
+                            <mat-card-title>
+                                <h5 class="bold-text">Yoga Classes </h5>
+                            </mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content>                          
+                            <span><i><img src="./../../../../assets/imges/dates.svg"> </i> Created Jul 15, 2022 </span>
+                        </mat-card-content>
+                        <mat-card-actions>
+                            <div class="left-block">
+                                <p><span class="bold-text"> Delivery : </span><span class="blue-text"> Text, Email,
+                                        Facebook </span> </p>
+                            </div>
+                            <div class="button-wrapper">
+                                <button mat-button class="btn red-btn ">
+                                    <img src="./../../../../assets/imges/dels.svg" /> </button>
+                            </div>
+                        </mat-card-actions>
+                    </mat-card>
+
+                </div>
+                <div class="templet-list">
+                    <mat-card class="templet-content">
+                        <mat-card-header>
+                            <mat-card-title>
+                                <h5 class="bold-text">Soccer Training Cancelled </h5>
+                            </mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content>                          
+                            <span><i><img src="./../../../../assets/imges/dates.svg"> </i> Created Jul 15, 2022 </span>
+                        </mat-card-content>
+                        <mat-card-actions>
+                            <div class="left-block">
+                                <p><span class="bold-text"> Delivery : </span><span class="blue-text"> Text, Email,
+                                        Facebook </span> </p>
+                            </div>
+                            <div class="button-wrapper">
+                                <button mat-button class="btn red-btn ">
+                                    <img src="./../../../../assets/imges/dels.svg" /> </button>
+                            </div>
+                        </mat-card-actions>
+                    </mat-card>
+
+                </div>
+                <div class="templet-list">
+                    <mat-card class="templet-content">
+                        <mat-card-header>
+                            <mat-card-title>
+                                <h5 class="bold-text">Yoga Classes </h5>
+                            </mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content>                          
+                            <span><i><img src="./../../../../assets/imges/dates.svg"> </i> Created Jul 15, 2022 </span>
+                        </mat-card-content>
+                        <mat-card-actions>
+                            <div class="left-block">
+                                <p><span class="bold-text"> Delivery : </span><span class="blue-text"> Text, Email,
+                                        Facebook </span> </p>
+                            </div>
+                            <div class="button-wrapper">
+                                <button mat-button class="btn red-btn ">
+                                    <img src="./../../../../assets/imges/dels.svg" /> </button>
+                            </div>
+                        </mat-card-actions>
+                    </mat-card>
+
+                </div>
+                <div class="templet-list">
+                    <mat-card class="templet-content">
+                        <mat-card-header>
+                            <mat-card-title>
+                                <h5 class="bold-text">Soccer Training Cancelled </h5>
+                            </mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content>                          
+                            <span><i><img src="./../../../../assets/imges/dates.svg"> </i> Created Jul 15, 2022 </span>
+                        </mat-card-content>
+                        <mat-card-actions>
+                            <div class="left-block">
+                                <p><span class="bold-text"> Delivery : </span><span class="blue-text"> Text, Email,
+                                        Facebook </span> </p>
+                            </div>
+                            <div class="button-wrapper">
+                                <button mat-button class="btn red-btn ">
+                                    <img src="./../../../../assets/imges/dels.svg" /> </button>
+                            </div>
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+                <div class="templet-list">
+                    <mat-card class="templet-content">
+                        <mat-card-header>
+                            <mat-card-title>
+                                <h5 class="bold-text">Yoga Classes </h5>
+                            </mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content>                          
+                            <span><i><img src="./../../../../assets/imges/dates.svg"> </i> Created Jul 15, 2022 </span>
+                        </mat-card-content>
+                        <mat-card-actions>
+                            <div class="left-block">
+                                <p><span class="bold-text"> Delivery : </span><span class="blue-text"> Text, Email,
+                                        Facebook </span> </p>
+                            </div>
+                            <div class="button-wrapper">
+                                <button mat-button class="btn red-btn ">
+                                    <img src="./../../../../assets/imges/dels.svg" /> </button>
+                            </div>
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+</section>

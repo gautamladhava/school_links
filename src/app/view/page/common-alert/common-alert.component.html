@@ -1,0 +1,59 @@
+<section class="alert-section">
+    <a routerLink="/pages/myschool"  class="back-btn btn"><i><img
+                src="./../../../../assets/imges/back-button.svg"> </i> Back</a>
+    <div class="heading-block">
+        <h3>Emergency Alert</h3>
+        <button class="btn red-btn round-btn" mat-button>To All School</button>
+
+    </div>
+    <div class="emergency-alert-block">
+        <h4>Create Emergency Alert </h4>
+        <p>To send a text alert, select the recipient types below, enter a text message of up to 160 characters, and
+            click submit.</p>
+        <section class="example-section" [formGroup]="toppings">
+            <span class="sm-text">Select Recipients :</span>
+            <mat-checkbox formControlName="pepperoni">Caregivers</mat-checkbox>
+            <mat-checkbox formControlName="extracheese">Students </mat-checkbox>
+            <mat-checkbox formControlName="mushroom">Admin</mat-checkbox>
+            <mat-checkbox formControlName="mushroom">Staff</mat-checkbox>
+
+        </section>
+
+    </div>
+    <div class="emergency-alert-block">
+        <div class="alert-message-block">
+            <div class="message-content">
+                <h5>Text Message Content</h5>
+                <mat-card class="example-card">
+                    <mat-card-content>
+                        <p class="sm-text">Please collect your children from class. School is closing 2pm today - bad
+                            weather is
+                            forecast. Check FB and email for updates. Stay Safe.</p>
+
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <span>1 Part <i  mat-raised-button
+                            matTooltip="Info about the action"
+                            aria-label="Button that displays a tooltip when focused or hovered over"  > i</i></span>
+                        <span>135 remaining | 25/160</span>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+            <div class="preview-messge">
+                <h5>Live Preview</h5>
+                <p class="sm-text message">
+                    Please collect your children from class. School is closing 2pm today - bad weather is forecast.
+                    Check FB and email for updates. Stay Safe.
+
+                </p>
+            </div>
+            <div class="messge-btn ">
+              
+                <button class="btn primary-btn" mat-button>
+                    Send Emergency Alert
+                </button>
+            </div>
+        </div>
+    </div>
+
+</section>

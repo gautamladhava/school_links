@@ -1,0 +1,183 @@
+@import "./../../../../assets/css/main.scss";
+
+.account-section {
+
+    padding: 30px 0;
+
+    h3 {
+        margin-bottom: 15px !important;
+    }
+
+    ::placeholder {
+        color: $placeholder !important;
+    }
+
+
+    .account-detail {
+        background-color: $white;
+        padding: 20px;
+        border-radius: 10px;
+        min-height: 700px;
+        position: relative;
+        @include bp(xs-max){
+            padding: 15px;
+        }
+        &.edit-details {
+            label {
+                color: $text-color !important;
+            }
+
+            ::placeholder {
+                color: $placeholder !important;
+            }
+        }
+
+        label {
+            color: $placeholder !important;
+        }
+
+        .btn-wrappers {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            @include bp(xs-max){
+                bottom: 15px;
+                right: 15px;
+            }
+        }
+
+        .profile-photo {
+            position: relative;
+            margin-bottom: 20px;
+
+            .profile-icon {
+                img {
+                    height: 170px;
+                    width: 170px;
+                    border-radius: 50%;
+                    object-fit: cover;
+
+                    @include bp(smlg-max) {
+                        height: 120px;
+                        width: 120px;
+                    }
+
+                    @include bp(xs-max) {
+                        height: 90px;
+                        width: 90px;
+                    }
+                }
+            }
+
+            .profile-edit-icon {
+                position: absolute;
+                top: 130px;
+                left: 130px;
+                background-color: $white;
+                border-radius: 50%;
+                padding: 10px;
+                box-shadow: 0px 5px 20px 0px $box-shadow !important;
+                cursor: pointer;
+
+                @include bp(smlg-max) {
+                    top: 87px;
+                    left: 87px;
+                }
+
+                @include bp(xs-max) {
+                    top: 67px;
+                    left: 67px;
+                    padding: 6px;
+                }
+
+                img {
+                    height: 18px;
+                    width: 18px;
+
+                    @include bp(xs-max) {
+                        height: 14px;
+                        width: 14px;
+
+                    }
+                }
+
+                .img-uplod {
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    overflow: hidden;
+                    opacity: 0;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .input-field {
+            flex: 0 0 50%;
+            max-width: 50%;
+            padding: 0 10px;
+            flex-direction: column;
+            display: flex;
+
+            &.old-password {
+                display: flex;
+                flex-direction: column;
+                width: 50%;
+                padding-right: 10px;
+                padding-left: 0;
+                @include bp(smlg-max){
+                    width: 100%;
+                    max-width: 100%;
+                    padding: 0;
+                }
+                label {
+                    margin-bottom: 10px;
+                }
+            }
+        }
+
+        .profile-detail {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -10px;
+            @include bp(smlg-max){
+                margin: 0;
+            }
+            .input-field {
+                flex: 0 0 50%;
+                max-width: 50%;
+                padding: 0 10px;
+                flex-direction: column;
+                display: flex;
+                flex-wrap: wrap;
+                @include bp(smlg-max){
+                    flex: 0 0 100%;
+                    max-width: 100%;
+                    padding: 0;
+                }
+                label {
+                    margin-bottom: 10px;
+                }
+            }
+
+            .btn-wrappers {
+                display: block;
+                width: 100%;
+                text-align: right;
+
+                .btn {
+                    font-size: 18px !important;
+                    @include bp(smlg-max){
+                        font-size: 16px !important;
+                    }
+                    @include bp(xs-max){
+                        font-size: 14px !important;
+                    }
+                }
+            }
+        }
+
+    }
+}

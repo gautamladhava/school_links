@@ -1,0 +1,118 @@
+<section class="user-role-section">
+    <div class="heading-block">
+        <h3>Users and Roles</h3>
+        <div class="search-block">
+            <mat-form-field appearance="outline" class="custom-form-field custom-icon">
+                <input matInput placeholder="Search User">
+                <mat-icon matPrefix><img src="./../../../../assets/imges/search.svg"> </mat-icon>
+            </mat-form-field>
+            <button mat-button class="btn yellow-btn" (click)="adduser()">
+                <i><img src="./../../../../assets/imges/user.svg" /> </i> Add a User</button>
+        </div>
+    </div>
+
+    <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start" [@.disabled]="true">
+        <mat-tab label="Users">
+            <div class="table-demo mat-elevation-z8">
+                <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                    <ng-container matColumnDef="position">
+                        <th mat-header-cell *matHeaderCellDef>Name</th>
+                        <td mat-cell *matCellDef="let element">
+                            <span>
+                                <i><img *ngIf="element.img; else elseBlock"
+                                        src="./../../../../assets/imges/{{ element.img }}" />
+                                    <ng-template #elseBlock>
+                                        <span class="avtar">KW</span>
+                                    </ng-template>
+                                </i>
+                                {{ element.name }}
+                            </span>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="name">
+                        <th mat-header-cell *matHeaderCellDef>Phone Number</th>
+                        <td mat-cell *matCellDef="let element">+{{ element.no }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="weight">
+                        <th mat-header-cell *matHeaderCellDef>Email</th>
+                        <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="weight1">
+                        <th mat-header-cell *matHeaderCellDef>Roles</th>
+                        <td mat-cell *matCellDef="let element">{{ element.role }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="weight2">
+                        <th mat-header-cell *matHeaderCellDef>Status</th>
+                        <td mat-cell *matCellDef="let element">{{ element.status }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="weight3">
+                        <th mat-header-cell *matHeaderCellDef>Last Login</th>
+                        <td mat-cell *matCellDef="let element">{{ element.time }} hr ago</td>
+                    </ng-container>
+                    <ng-container matColumnDef="symbol">
+                        <th mat-header-cell *matHeaderCellDef>Actions</th>
+                        <td mat-cell *matCellDef="let element">
+                            <div class="button-wrapper">
+                                <button mat-button class="blue-btn btn" (click)="update()">
+                                    <img src="./../../../../assets/imges/edits.svg" />
+                                </button>
+                                <button mat-button class="red-btn btn" (click)="openDialogs()">
+                                    <img src="./../../../../assets/imges/dels.svg" />
+                                </button>
+                            </div>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+                    <!-- <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="inactive" ></tr> -->
+                </table>   
+            </div>
+            <mat-paginator [pageSizeOptions]="[8, 10, 20]" showFirstLastButtons
+            aria-label="Select page of periodic elements">
+        </mat-paginator> 
+        </mat-tab>
+        <mat-tab label="Roles">
+            <div class="mat-elevation-z8 table-demo">
+                <table mat-table [dataSource]="dataSource2" matSort (matSortChange)="announceSortChange($event)">
+
+                    <ng-container matColumnDef="id">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+                        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="title">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Title  </th>
+                        <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="status" >
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+                        <td mat-cell *matCellDef="let element">
+                            {{element.status}}
+                        </td>
+                    </ng-container>
+
+
+                    <ng-container matColumnDef="created">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Created </th>
+                        <td mat-cell *matCellDef="let element">
+                            16/12/2022 11:32:55
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="update">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Last Updated </th>
+                        <td mat-cell *matCellDef="let element">
+                            16/12/2022 11:32:55
+                        </td>
+                    </ng-container>
+                  
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns2;"></tr>
+                </table>
+            </div>
+            <mat-paginator [pageSizeOptions]="[8, 10, 20]" showFirstLastButtons
+                    aria-label="Select page of periodic elements">
+                </mat-paginator>
+        </mat-tab>
+    </mat-tab-group>
+</section>

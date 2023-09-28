@@ -1,0 +1,57 @@
+@import "./../../../assets/css/main.scss";
+
+.button-wrappers {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    i {
+        cursor: pointer;
+        padding: 5px;
+
+        img {
+            height: 20px;
+            width: 20px;
+        }
+    }
+
+}
+
+.add-block-header {
+    padding: 15px;
+
+    border-bottom: 1px solid $card-border;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    i{
+        cursor: pointer;
+        padding: 5px;
+    }
+}
+::placeholder {
+color: $placeholder;
+  }
+
+
+.add-block-content {
+    padding: 15px;
+    display: flex;
+    flex-wrap: wrap;
+// margin: 0 -10px;
+    .input-field {
+        flex: 0 0 50%;
+        max-width: 50%;
+        padding: 0 10px;
+        flex-direction: column;
+        display: flex;
+        label{
+            margin-bottom: 10px;
+        }
+    }
+    .btn-wrappers{
+        display: block;
+        width: 100%;
+        text-align: right;
+    }
+}

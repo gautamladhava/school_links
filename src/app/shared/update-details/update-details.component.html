@@ -1,0 +1,48 @@
+<div class="add-block-header">
+    <h3>Edit User</h3>
+        <i mat-button mat-dialog-close><img src="./../../../assets/imges/close.svg"></i>    
+</div>
+<div class="add-block-content">
+    <div class="input-field">
+        <label for="name">Name</label>
+        <mat-form-field appearance="outline" class="custom-form-field">
+            <input matInput value="Kathryn Murphy" id="name">
+        </mat-form-field>
+    </div>
+    <div class="input-field">
+        <label for="number">Phone Number</label>
+        <mat-form-field appearance="outline" class="custom-form-field">
+            <input matInput value="+61488805460" id="number">
+        </mat-form-field>
+    </div>
+    <div class="input-field">
+        <label for="email">Email</label>
+        <mat-form-field appearance="outline" class="custom-form-field">
+            <input matInput value="kmurphy@gmail.com" id="email">
+        </mat-form-field>
+    </div>
+    <div class="input-field">
+        <label for="role">Roles</label>
+        <mat-form-field class="custom-form-field custom-select" appearance="outline">
+            <mat-select [formControl]="colorControl" id="role">
+                <mat-option value="one" aria-selected="true" >Admin
+                </mat-option>
+                <mat-option value="two">Next Week</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="input-field">
+        <label for="status">Status</label>
+        <mat-form-field class="custom-form-field custom-select" appearance="outline">
+            <mat-select [formControl]="colorControl" id="status">
+                <mat-option value="one" aria-selected="true">Active
+                </mat-option>
+                <mat-option value="two">Inactive</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="btn-wrappers">
+        <button mat-flat-button color="primary" class="btn primary-btn bg-btn" title="Sign In" mat-button mat-dialog-close>Update Details</button>
+
+    </div>
+</div>
